@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="static\javascript\Classes.ts" />
     <TypeScriptCompile Include="static\javascript\ItemBase.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
