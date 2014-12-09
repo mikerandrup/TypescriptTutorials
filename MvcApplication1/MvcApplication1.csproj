@@ -155,7 +155,6 @@
     <TypeScriptCompile Include="static\javascript\ItemBase.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="static\javascript\Modules.ts" />
     <TypeScriptCompile Include="static\javascript\modules\LettersOnlyValidator.ts" />
     <TypeScriptCompile Include="static\javascript\modules\Validation.ts" />
     <TypeScriptCompile Include="static\javascript\modules\ValidatorTests.ts" />
