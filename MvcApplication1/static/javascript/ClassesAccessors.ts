@@ -1,16 +1,20 @@
-﻿var groupPasscode = "secret passcode";
+﻿module ClassExamples {
 
-class Groupie {
-    constructor(private _fullName: string){}
+    var groupPasscode = "secret passcode";
 
-    get fullName(): string {
-        return this._fullName;
+    class Groupie {
+        constructor(private _fullName: string) { }
+
+        get fullName(): string {
+            return this._fullName;
+        }
     }
+
+
+    var groupie1 = new Groupie("Number1 Fan");
+
+    groupie1.fullName = "Number2 Fan";
+
+    console.log(groupie1.fullName);
+
 }
-
-
-var groupie1 = new Groupie("Number1 Fan");
-
-groupie1.fullName = "Number2 Fan";
-
-console.log(groupie1.fullName);
