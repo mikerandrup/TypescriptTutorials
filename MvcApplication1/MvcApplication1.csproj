@@ -139,17 +139,18 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="static\javascript\Classes.ts">
+    <TypeScriptCompile Include="static\javascript\functions\FunctionTypes.ts" />
+    <TypeScriptCompile Include="TypeScriptSource\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="static\javascript\classes\Classes.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="static\javascript\ClassesAccessors.ts">
+    <TypeScriptCompile Include="static\javascript\classes\ClassesAccessors.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="static\javascript\ClassesAdvanced.ts">
+    <TypeScriptCompile Include="static\javascript\classes\ClassesAdvanced.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="static\javascript\ClassesStaticProperties.ts">
+    <TypeScriptCompile Include="static\javascript\classes\ClassesStaticProperties.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="static\javascript\ItemBase.ts">
