@@ -157,7 +157,7 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="static\javascript\modules\LettersOnlyValidator.ts" />
     <TypeScriptCompile Include="static\javascript\modules\Validation.ts" />
-    <TypeScriptCompile Include="static\javascript\modules\ValidatorTests.ts" />
+    <TypeScriptCompile Include="static\javascript\ValidatorTests.ts" />
     <TypeScriptCompile Include="static\javascript\modules\ZipCodeValidator.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
-﻿/// <reference path="Validation.ts" />
-/// <reference path="LettersOnlyValidator.ts" />
-/// <reference path="ZipCodeValidator.ts" />
+﻿/// <reference path="modules/Validation.ts" />
+/// <reference path="modules/LettersOnlyValidator.ts" />
+/// <reference path="modules/ZipCodeValidator.ts" />
 
 var strings = ['Hello', '98052', '101'];
 
