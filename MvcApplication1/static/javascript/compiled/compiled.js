@@ -245,6 +245,137 @@ var FunctionStuff;
         console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
     })(Overloads || (Overloads = {}));
 })(FunctionStuff || (FunctionStuff = {}));
+var Generics;
+(function (Generics) {
+    var GenericsAndFunctions;
+    (function (GenericsAndFunctions) {
+        function overlySpecificIdentity(arg) {
+            return arg;
+        }
+        function pointlesslyGeneralIdentity(arg) {
+            return arg;
+        }
+        function genericIdentity(arg) {
+            return arg;
+        }
+        console.log(typeof genericIdentity(true));
+        console.log(typeof genericIdentity(true));
+        console.log(typeof genericIdentity("fidgety"));
+        console.log(typeof genericIdentity("fidgety"));
+        console.log(typeof genericIdentity(522.1));
+        console.log(typeof genericIdentity(522.1));
+        console.log(typeof genericIdentity({ imma: "object" }));
+        console.log(typeof genericIdentity({ imma: "object" }));
+    })(GenericsAndFunctions || (GenericsAndFunctions = {}));
+    var GenericInterfaces;
+    (function (GenericInterfaces) {
+        var ExampleOne;
+        (function (ExampleOne) {
+            function identity(arg) {
+                return arg;
+            }
+            var myIdentity = identity;
+        })(ExampleOne || (ExampleOne = {}));
+        var ExampleTwo;
+        (function (ExampleTwo) {
+            function identity(arg) {
+                return arg;
+            }
+            var myIdentity = identity;
+        })(ExampleTwo || (ExampleTwo = {}));
+    })(GenericInterfaces || (GenericInterfaces = {}));
+    var GenericClasses;
+    (function (GenericClasses) {
+        var GenericNumber = (function () {
+            function GenericNumber() {
+            }
+            return GenericNumber;
+        })();
+        var myGenericNumber = new GenericNumber();
+        myGenericNumber.zeroValue = 0;
+        myGenericNumber.add = function (exxx, whyy) {
+            return exxx + whyy;
+        };
+        var myGenericBooleanAnder = new GenericNumber();
+        myGenericBooleanAnder.zeroValue = false;
+        myGenericBooleanAnder.add = function (aay, bee) {
+            return aay || bee;
+        };
+        var myGenericStringConcat = new GenericNumber();
+        myGenericStringConcat.zeroValue = "";
+        myGenericStringConcat.add = function (one, two) {
+            return one + two;
+        };
+    })(GenericClasses || (GenericClasses = {}));
+    var GenericConstraints;
+    (function (GenericConstraints) {
+        function loggingIdentity(arg) {
+            console.log(arg.length);
+            return arg;
+        }
+        loggingIdentity("string has length");
+        loggingIdentity([5, 10, 15, 20]);
+        loggingIdentity({ length: 5, value: "twelve" });
+    })(GenericConstraints || (GenericConstraints = {}));
+    var UsingTypeParamsInGenericConstraints;
+    (function (UsingTypeParamsInGenericConstraints) {
+        var Findable = (function () {
+            function Findable() {
+            }
+            return Findable;
+        })();
+        function find(n, s) {
+        }
+    })(UsingTypeParamsInGenericConstraints || (UsingTypeParamsInGenericConstraints = {}));
+    var ClassTypesInGenerics;
+    (function (ClassTypesInGenerics) {
+        var Keeper = (function () {
+            function Keeper() {
+            }
+            return Keeper;
+        })();
+        var BeeKeeper = (function (_super) {
+            __extends(BeeKeeper, _super);
+            function BeeKeeper() {
+                _super.apply(this, arguments);
+            }
+            return BeeKeeper;
+        })(Keeper);
+        var ZooKeeper = (function (_super) {
+            __extends(ZooKeeper, _super);
+            function ZooKeeper() {
+                _super.apply(this, arguments);
+            }
+            return ZooKeeper;
+        })(Keeper);
+        var Animal = (function () {
+            function Animal() {
+            }
+            return Animal;
+        })();
+        var Bee = (function (_super) {
+            __extends(Bee, _super);
+            function Bee() {
+                this.numLegs = 6;
+                _super.call(this);
+            }
+            return Bee;
+        })(Animal);
+        var Lion = (function (_super) {
+            __extends(Lion, _super);
+            function Lion() {
+                this.numLegs = 4;
+                _super.call(this);
+            }
+            return Lion;
+        })(Animal);
+        function findKeeper(a) {
+            return a.prototype.keeper;
+        }
+        console.log(findKeeper(Lion).nametag);
+        console.log(findKeeper(Bee).nametag);
+    })(ClassTypesInGenerics || (ClassTypesInGenerics = {}));
+})(Generics || (Generics = {}));
 var ClassExamples;
 (function (ClassExamples) {
     var isDone = false;
