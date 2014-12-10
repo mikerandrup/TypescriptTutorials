@@ -108,11 +108,19 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TypeLite">
+      <HintPath>..\packages\TypeLite.1.0.1.0\lib\net4\TypeLite.dll</HintPath>
+    </Reference>
+    <Reference Include="TypeLite.Net4">
+      <HintPath>..\packages\TypeLite.1.0.1.0\lib\net4\TypeLite.Net4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SampleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +129,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="static\javascript\compiled\compiled.js" />
+    <Content Include="static\javascript\libraries\lscache.js" />
+    <Content Include="TypeScriptSource\typings\jquery\lscache.d.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -132,13 +142,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\TypeLite.Net4.d.ts">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="static\javascript\declarationmerging\DeclarationMerging.ts" />
+    <TypeScriptCompile Include="static\javascript\definitionfiles\TestLSCache.ts" />
     <TypeScriptCompile Include="static\javascript\functions\FunctionTypes.ts" />
     <TypeScriptCompile Include="static\javascript\generics\Generics.ts" />
     <TypeScriptCompile Include="static\javascript\mixins\Mixins.ts" />
@@ -166,6 +181,21 @@
   <ItemGroup>
     <Content Include="static\javascript\compiled\compiled.js.map" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TestPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\TypeLite.Net4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeLite.Net4.d.ts</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Manager.ttinclude" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -173,7 +203,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
-    <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
+    <TypeScriptModuleKind>none</TypeScriptModuleKind>
     <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
