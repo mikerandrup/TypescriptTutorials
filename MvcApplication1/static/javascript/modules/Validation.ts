@@ -1,5 +1,5 @@
 ﻿module Validation {
-    export interface StringValidator {
+    export interface StringIsValid {
         isAcceptable(s: string): boolean;
     }
 }

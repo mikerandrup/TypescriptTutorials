@@ -153,9 +153,6 @@
             return a.prototype.keeper;
         }
 
-        console.log(findKeeper(Lion).nametag);
-        console.log(findKeeper(Bee).nametag);
-
     }
 
 }

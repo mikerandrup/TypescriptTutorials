@@ -22,7 +22,7 @@
 
     class SmartObject implements Disposable, Activatable {
         constructor() {
-            setInterval(() => console.log(this.isActive + " : " + this.isDisposed), 500);
+            setTimeout(() => console.log(this.isActive + " : " + this.isDisposed), 500);
         }
 
         interact() {

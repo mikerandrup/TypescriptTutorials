@@ -123,9 +123,4 @@
         interval: number;
         reset(): void;
     }
-
-    var counter: Counter;
-    counter(10);
-    counter.reset();
-    counter.interval = 3.5;
 }

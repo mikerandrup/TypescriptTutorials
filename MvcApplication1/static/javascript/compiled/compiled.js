@@ -1,157 +1,95 @@
+var DeclarationMerging;
+(function (DeclarationMerging) {
+    var box = { height: 5, width: 6, scale: 10 };
+    var Coords = (function () {
+        function Coords(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        return Coords;
+    })();
+    window.onmousedown = function (evt) {
+        var coords = new Coords(evt.pageX, evt.pageY);
+    };
+})(DeclarationMerging || (DeclarationMerging = {}));
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-var ClassExamples;
-(function (ClassExamples) {
-    var Greeter2 = (function () {
-        function Greeter2(message) {
-            this.greeting = message;
-        }
-        Greeter2.prototype.greet = function () {
-            return "Hello, " + this.greeting;
-        };
-        return Greeter2;
-    })();
-    var Animal = (function () {
-        function Animal(name, age) {
+var TestLSCache;
+(function (TestLSCache) {
+    var FoodGroup;
+    (function (FoodGroup) {
+        FoodGroup[FoodGroup["Grains"] = 0] = "Grains";
+        FoodGroup[FoodGroup["Daily"] = 1] = "Daily";
+        FoodGroup[FoodGroup["Meat"] = 2] = "Meat";
+        FoodGroup[FoodGroup["Vegetable"] = 3] = "Vegetable";
+        FoodGroup[FoodGroup["Fruit"] = 4] = "Fruit";
+        FoodGroup[FoodGroup["Sweets"] = 5] = "Sweets";
+    })(FoodGroup || (FoodGroup = {}));
+    var FoodItem = (function () {
+        function FoodItem(name) {
             this.name = name;
-            this.age = age;
         }
-        Animal.prototype.move = function (meters) {
-            if (meters === void 0) { meters = 0; }
-            console.log(this.name + " moved " + meters + "m.");
-        };
-        return Animal;
+        return FoodItem;
     })();
-    var Snake = (function (_super) {
-        __extends(Snake, _super);
-        function Snake(name) {
-            _super.call(this, name, 2);
+    var DessertFood = (function (_super) {
+        __extends(DessertFood, _super);
+        function DessertFood(name) {
+            this.group = 5 /* Sweets */;
+            this.fatGrams = 50;
+            _super.call(this, name);
         }
-        Snake.prototype.move = function (meters) {
-            if (meters === void 0) { meters = 5; }
-            console.log("Slithering... ");
-            _super.prototype.move.call(this, meters);
-        };
-        return Snake;
-    })(Animal);
-    var Horse = (function (_super) {
-        __extends(Horse, _super);
-        function Horse(name) {
-            _super.call(this, name, 5);
+        return DessertFood;
+    })(FoodItem);
+    var MeatyFood = (function (_super) {
+        __extends(MeatyFood, _super);
+        function MeatyFood(name) {
+            this.group = 2 /* Meat */;
+            this.proteinGrams = 20;
+            _super.call(this, name);
         }
-        Horse.prototype.move = function (meters) {
-            if (meters === void 0) { meters = 45; }
-            console.log("Galloping... ");
-            _super.prototype.move.call(this, meters);
-        };
-        return Horse;
-    })(Animal);
-    var Mammal = (function () {
-        function Mammal(theName) {
-            this.name = theName;
+        return MeatyFood;
+    })(FoodItem);
+    var PastaFood = (function (_super) {
+        __extends(PastaFood, _super);
+        function PastaFood(name) {
+            this.group = 0 /* Grains */;
+            this.carbGrams = 5000;
+            _super.call(this, name);
         }
-        return Mammal;
-    })();
-    var Rhino = (function (_super) {
-        __extends(Rhino, _super);
-        function Rhino() {
-            _super.call(this, "Rhino", 15);
-        }
-        return Rhino;
-    })(Animal);
-    var Employee = (function () {
-        function Employee(theName) {
-            this.name = theName;
-        }
-        return Employee;
-    })();
-    var greeter = new Greeter2("world");
-    var sam = new Snake("Sammy the Python");
-    var tom = new Horse("Tommy the Palimino");
-    sam.move();
-    tom.move(34);
-    tom.move(34);
-    var goat = new Animal("Goat", 2.5);
-    var rhino = new Rhino();
-    var employee = new Employee("Bob");
-    goat = rhino;
-})(ClassExamples || (ClassExamples = {}));
-var ClassExamples;
-(function (ClassExamples) {
-    var groupPasscode = "secret passcode";
-    var Groupie = (function () {
-        function Groupie(_fullName) {
-            this._fullName = _fullName;
-        }
-        Object.defineProperty(Groupie.prototype, "fullName", {
-            get: function () {
-                return this._fullName;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        return Groupie;
-    })();
-    var groupie1 = new Groupie("Number1 Fan");
-    groupie1.fullName = "Number2 Fan";
-    console.log(groupie1.fullName);
-})(ClassExamples || (ClassExamples = {}));
-var ClassExamples;
-(function (ClassExamples) {
-    var Greeter = (function () {
-        function Greeter() {
-            console.log("Running the constructor...");
-        }
-        Greeter.prototype.greet = function () {
-            if (this.greeting) {
-                return "Hello, " + this.greeting;
+        return PastaFood;
+    })(FoodItem);
+    var Meal = (function () {
+        function Meal(mealName) {
+            var foods = [];
+            for (var _i = 1; _i < arguments.length; _i++) {
+                foods[_i - 1] = arguments[_i];
             }
-            else {
-                return Greeter.defaultGreeting;
-            }
-        };
-        Greeter.defaultGreeting = "Hello, there";
-        return Greeter;
-    })();
-    var greeter1 = new Greeter();
-    console.log(greeter1.greet());
-    var greeterMaker = Greeter;
-    greeterMaker.defaultGreeting = "Hey there!";
-    var greeter2 = new greeterMaker();
-    console.log(greeter2.greet());
-    var greeter3 = new Greeter();
-    greeter3.greeting = "world";
-    console.log(greeter3.greet());
-    var Point = (function () {
-        function Point() {
+            this.mealName = mealName;
+            this.foodsInMeal = foods;
         }
-        return Point;
+        return Meal;
     })();
-    var point3d = { x: 1, y: 2, z: 3 };
-})(ClassExamples || (ClassExamples = {}));
-var ClassExamples;
-(function (ClassExamples) {
-    var Grid = (function () {
-        function Grid(scale) {
-            this.scale = scale;
-        }
-        Grid.prototype.calculateDistanceFromOrigin = function (point) {
-            var xDist = (point.x - Grid.origin.x);
-            var yDist = (point.y - Grid.origin.y);
-            return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
-        };
-        Grid.origin = { x: 0, y: 0 };
-        return Grid;
-    })();
-    var grid1 = new Grid(1.0);
-    var grid2 = new Grid(5.0);
-    console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
-    console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
-})(ClassExamples || (ClassExamples = {}));
+    var breakfast = new Meal("breakfast", new MeatyFood("bacon"), new MeatyFood("eggs"));
+    var lunch = new Meal("lunch", new PastaFood("ravioli"), new MeatyFood("burger"));
+    var dinner = new Meal("dinner", new PastaFood("linguini"), new MeatyFood("steak"), new DessertFood("pie"));
+    var MEAL_KEY_1 = "mealkey1";
+    var MEAL_KEY_2 = "mealkey2";
+    var MEAL_KEY_3 = "mealkey3";
+    var EXPIRATION_MINUTES = 1;
+    lscache.set(MEAL_KEY_1, breakfast, EXPIRATION_MINUTES);
+    lscache.set(MEAL_KEY_2, lunch, EXPIRATION_MINUTES);
+    lscache.set(MEAL_KEY_3, dinner, EXPIRATION_MINUTES);
+    var retrievedMeal1 = lscache.get(MEAL_KEY_1);
+    console.log(retrievedMeal1.mealName, retrievedMeal1);
+    var retrievedMeal2 = lscache.get(MEAL_KEY_2);
+    console.log(retrievedMeal2);
+    var retrievedMeal3 = lscache.get(MEAL_KEY_3);
+    console.log(retrievedMeal3);
+})(TestLSCache || (TestLSCache = {}));
 var FunctionStuff;
 (function (FunctionStuff) {
     var NamedAndAnon;
@@ -372,10 +310,200 @@ var Generics;
         function findKeeper(a) {
             return a.prototype.keeper;
         }
-        console.log(findKeeper(Lion).nametag);
-        console.log(findKeeper(Bee).nametag);
     })(ClassTypesInGenerics || (ClassTypesInGenerics = {}));
 })(Generics || (Generics = {}));
+var Mixins;
+(function (Mixins) {
+    var Disposable = (function () {
+        function Disposable() {
+        }
+        Disposable.prototype.dispose = function () {
+            this.isDisposed = true;
+        };
+        return Disposable;
+    })();
+    var Activatable = (function () {
+        function Activatable() {
+        }
+        Activatable.prototype.activate = function () {
+            this.isActive = true;
+        };
+        Activatable.prototype.deactivate = function () {
+            this.isActive = false;
+        };
+        return Activatable;
+    })();
+    var SmartObject = (function () {
+        function SmartObject() {
+            var _this = this;
+            this.isDisposed = false;
+            this.isActive = false;
+            setTimeout(function () { return console.log(_this.isActive + " : " + _this.isDisposed); }, 500);
+        }
+        SmartObject.prototype.interact = function () {
+            this.activate();
+        };
+        return SmartObject;
+    })();
+    applyMixins(SmartObject, [Disposable, Activatable]);
+    var smartObj = new SmartObject();
+    setTimeout(function () { return smartObj.interact(); }, 1000);
+    function applyMixins(derivedCtor, baseCtors) {
+        baseCtors.forEach(function (baseCtor) {
+            Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
+                derivedCtor.prototype[name] = baseCtor.prototype[name];
+            });
+        });
+    }
+})(Mixins || (Mixins = {}));
+var ClassExamples;
+(function (ClassExamples) {
+    var Greeter2 = (function () {
+        function Greeter2(message) {
+            this.greeting = message;
+        }
+        Greeter2.prototype.greet = function () {
+            return "Hello, " + this.greeting;
+        };
+        return Greeter2;
+    })();
+    var Animal = (function () {
+        function Animal(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Animal.prototype.move = function (meters) {
+            if (meters === void 0) { meters = 0; }
+            console.log(this.name + " moved " + meters + "m.");
+        };
+        return Animal;
+    })();
+    var Snake = (function (_super) {
+        __extends(Snake, _super);
+        function Snake(name) {
+            _super.call(this, name, 2);
+        }
+        Snake.prototype.move = function (meters) {
+            if (meters === void 0) { meters = 5; }
+            console.log("Slithering... ");
+            _super.prototype.move.call(this, meters);
+        };
+        return Snake;
+    })(Animal);
+    var Horse = (function (_super) {
+        __extends(Horse, _super);
+        function Horse(name) {
+            _super.call(this, name, 5);
+        }
+        Horse.prototype.move = function (meters) {
+            if (meters === void 0) { meters = 45; }
+            console.log("Galloping... ");
+            _super.prototype.move.call(this, meters);
+        };
+        return Horse;
+    })(Animal);
+    var Mammal = (function () {
+        function Mammal(theName) {
+            this.name = theName;
+        }
+        return Mammal;
+    })();
+    var Rhino = (function (_super) {
+        __extends(Rhino, _super);
+        function Rhino() {
+            _super.call(this, "Rhino", 15);
+        }
+        return Rhino;
+    })(Animal);
+    var Employee = (function () {
+        function Employee(theName) {
+            this.name = theName;
+        }
+        return Employee;
+    })();
+    var greeter = new Greeter2("world");
+    var sam = new Snake("Sammy the Python");
+    var tom = new Horse("Tommy the Palimino");
+    sam.move();
+    tom.move(34);
+    tom.move(34);
+    var goat = new Animal("Goat", 2.5);
+    var rhino = new Rhino();
+    var employee = new Employee("Bob");
+    goat = rhino;
+})(ClassExamples || (ClassExamples = {}));
+var ClassExamples;
+(function (ClassExamples) {
+    var groupPasscode = "secret passcode";
+    var Groupie = (function () {
+        function Groupie(_fullName) {
+            this._fullName = _fullName;
+        }
+        Object.defineProperty(Groupie.prototype, "fullName", {
+            get: function () {
+                return this._fullName;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return Groupie;
+    })();
+    var groupie1 = new Groupie("Number1 Fan");
+    groupie1.fullName = "Number2 Fan";
+    console.log(groupie1.fullName);
+})(ClassExamples || (ClassExamples = {}));
+var ClassExamples;
+(function (ClassExamples) {
+    var Greeter = (function () {
+        function Greeter() {
+            console.log("Running the constructor...");
+        }
+        Greeter.prototype.greet = function () {
+            if (this.greeting) {
+                return "Hello, " + this.greeting;
+            }
+            else {
+                return Greeter.defaultGreeting;
+            }
+        };
+        Greeter.defaultGreeting = "Hello, there";
+        return Greeter;
+    })();
+    var greeter1 = new Greeter();
+    console.log(greeter1.greet());
+    var greeterMaker = Greeter;
+    greeterMaker.defaultGreeting = "Hey there!";
+    var greeter2 = new greeterMaker();
+    console.log(greeter2.greet());
+    var greeter3 = new Greeter();
+    greeter3.greeting = "world";
+    console.log(greeter3.greet());
+    var Point = (function () {
+        function Point() {
+        }
+        return Point;
+    })();
+    var point3d = { x: 1, y: 2, z: 3 };
+})(ClassExamples || (ClassExamples = {}));
+var ClassExamples;
+(function (ClassExamples) {
+    var Grid = (function () {
+        function Grid(scale) {
+            this.scale = scale;
+        }
+        Grid.prototype.calculateDistanceFromOrigin = function (point) {
+            var xDist = (point.x - Grid.origin.x);
+            var yDist = (point.y - Grid.origin.y);
+            return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
+        };
+        Grid.origin = { x: 0, y: 0 };
+        return Grid;
+    })();
+    var grid1 = new Grid(1.0);
+    var grid2 = new Grid(5.0);
+    console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+    console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+})(ClassExamples || (ClassExamples = {}));
 var ClassExamples;
 (function (ClassExamples) {
     var isDone = false;
@@ -440,55 +568,7 @@ var ClassExamples;
     square.color = 2 /* Blue */;
     square.sideLength = 10;
     square.penWidth = 3.2;
-    var counter;
-    counter(10);
-    counter.reset();
-    counter.interval = 3.5;
 })(ClassExamples || (ClassExamples = {}));
-var Mixins;
-(function (Mixins) {
-    var Disposable = (function () {
-        function Disposable() {
-        }
-        Disposable.prototype.dispose = function () {
-            this.isDisposed = true;
-        };
-        return Disposable;
-    })();
-    var Activatable = (function () {
-        function Activatable() {
-        }
-        Activatable.prototype.activate = function () {
-            this.isActive = true;
-        };
-        Activatable.prototype.deactivate = function () {
-            this.isActive = false;
-        };
-        return Activatable;
-    })();
-    var SmartObject = (function () {
-        function SmartObject() {
-            var _this = this;
-            this.isDisposed = false;
-            this.isActive = false;
-            setInterval(function () { return console.log(_this.isActive + " : " + _this.isDisposed); }, 500);
-        }
-        SmartObject.prototype.interact = function () {
-            this.activate();
-        };
-        return SmartObject;
-    })();
-    applyMixins(SmartObject, [Disposable, Activatable]);
-    var smartObj = new SmartObject();
-    setTimeout(function () { return smartObj.interact(); }, 1000);
-    function applyMixins(derivedCtor, baseCtors) {
-        baseCtors.forEach(function (baseCtor) {
-            Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
-                derivedCtor.prototype[name] = baseCtor.prototype[name];
-            });
-        });
-    }
-})(Mixins || (Mixins = {}));
 var Validation;
 (function (Validation) {
     var lettersRegexp = /^[A-Za-z]+$/;
