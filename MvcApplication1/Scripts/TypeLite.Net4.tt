@@ -10,7 +10,7 @@
 <#@include file="Manager.ttinclude"#>
 <# var manager = Manager.Create(Host, GenerationEnvironment); #>
 
-<# var ts = TypeScript.Definitions()
+<# var ts = TypeScript.Definitions() 
 		.WithReference("Enums.ts")
 		.ForLoadedAssemblies();
 #> 

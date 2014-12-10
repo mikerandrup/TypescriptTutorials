@@ -10,7 +10,7 @@
 declare module MvcApplication1.Models {
 	interface SampleModel {
 		Name: string;
-		PrimaryKey: number;
+		SecretWord: string;
 		Price: number;
 		EnumTest: MvcApplication1.Models.HowEnumsWork;
 	}

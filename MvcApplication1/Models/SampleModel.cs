@@ -21,12 +21,12 @@ namespace MvcApplication1.Models
         public SampleModel(string name)
         {
             _name = name;
-        } 
+        }
 
         private string _name;
         public string Name { get { return _name; } }
 
-        public int PrimaryKey { get; set; }
+        public string SecretWord { get; set; }
 
         public float Price { get; set; }
 

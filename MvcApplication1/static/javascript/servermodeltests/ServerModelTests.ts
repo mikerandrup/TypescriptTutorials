@@ -8,7 +8,7 @@ import ServerEnum = MvcApplication1.Models.HowEnumsWork;
 // Wow.  I don't think this will work for maintaining the app over time.
 class CloneOfServerModel implements IServerModel {
     Name: string;
-    PrimaryKey: number;
+    SecretWord: string;
     Price: number;
     EnumTest: ServerEnum;
 }
@@ -16,7 +16,7 @@ class CloneOfServerModel implements IServerModel {
 var myModel = new CloneOfServerModel();
 
 myModel.Name = "Bob";
-myModel.PrimaryKey = 15;
+myModel.SecretWord = "password";
 myModel.Price = 3.50;
 myModel.EnumTest = ServerEnum.TheWorldExplodes;
 

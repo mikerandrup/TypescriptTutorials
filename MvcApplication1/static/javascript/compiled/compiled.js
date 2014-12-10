@@ -616,7 +616,7 @@ var CloneOfServerModel = (function () {
 })();
 var myModel = new CloneOfServerModel();
 myModel.Name = "Bob";
-myModel.PrimaryKey = 15;
+myModel.SecretWord = "password";
 myModel.Price = 3.50;
 myModel.EnumTest = 3 /* TheWorldExplodes */;
 console.log("CloneOfServerModel", myModel);
