@@ -141,6 +141,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="static\javascript\functions\FunctionTypes.ts" />
     <TypeScriptCompile Include="static\javascript\generics\Generics.ts" />
+    <TypeScriptCompile Include="static\javascript\mixins\Mixins.ts" />
     <TypeScriptCompile Include="TypeScriptSource\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="static\javascript\classes\Classes.ts">
       <SubType>Code</SubType>
